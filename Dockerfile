@@ -19,7 +19,7 @@ RUN     apk add --update curl \
             && apk del curl \
             && rm -rf /var/cache/apk/*
 
-ENV     DNSMASQ_SEARCH='default.svc.cluster.local,svc.cluster.local,cluster.local' \
+ENV     DNSMASQ_SEARCH='default.svc.cluster.local,svc.cluster.local,cluster.local,default.pod.cluster.local,pod.cluster.local' \
         DNSMASQ_SERVERS='172.17.1.10,10.0.80.11,10.0.80.12,208.67.222.222' \
         DNSMASQ_APPEND=true \
         DNSMASQ_DEFAULT=true

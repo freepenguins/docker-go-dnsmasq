@@ -3,11 +3,12 @@ NAME = go-dnsmasq
 VERSION = 1
 LOCAL_TAG = $(NS)/$(NAME):$(VERSION)
 
-REGISTRY = hub.docker.com
+REGISTRY = callforamerica
 ORG = vp
 REMOTE_TAG = $(REGISTRY)/$(NAME):$(VERSION)
 
-REMOTE_REPO = docker-go-dnsmasq
+GITHUB_REPO = docker-go-dnsmasq
+DOCKER_REPO = go-dnsmasq
 BUILD_BRANCH = master
 
 .PHONY: all build test release shell run start stop rm rmi default
@@ -44,7 +45,7 @@ shell:
 	@docker exec -ti $(NAME) /bin/ash
 
 run:
-	@docker run -it --rm --name $(NAME) --entrypoint='/bin/bash' $(LOCAL_TAG)
+	@docker run -it --rm --name $(NAME) $(LOCAL_TAG)
 
 launch:
 	@docker run -d --name $(NAME) $(LOCAL_TAG)
